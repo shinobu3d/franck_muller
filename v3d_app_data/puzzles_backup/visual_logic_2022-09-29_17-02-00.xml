@@ -1,0 +1,169 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tab name="init" type="InitTab" active="false" scrollx="20.000000000000227" scrolly="9" scale="0.9">
+    <block xmlns="https://developers.google.com/blockly/xml" type="initSettings" id=");,MG4|3#)X|8m1~J=h5" x="-10" y="-10">
+      <field name="LOAD_COMP_ASSETS">FALSE</field>
+      <field name="FULLSCREEN">FALSE</field>
+      <field name="BKG_TRANSPARENCY">TRUE</field>
+      <field name="PRESERVE_DRAW_BUF">FALSE</field>
+      <field name="FADE_ANNOTATIONS">TRUE</field>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="initPreloader" id="Teow@~liH$8?VF[3{66-" x="-10" y="170"></block>
+  </tab>
+  <tab name="main" type="MainTab" active="true" scrollx="-144.00006103515636" scrolly="-266.20001220703114" scale="0.9">
+    <variables xmlns="https://developers.google.com/blockly/xml">
+      <variable id="jqid~2=ot|hnz`]{Anv`">camera_moving</variable>
+    </variables>
+    <block xmlns="https://developers.google.com/blockly/xml" type="everyFrame" id="-n1ylXcscR%t,A[L:YMu" x="530" y="330">
+      <statement name="DO">
+        <block type="controls_if" id="B*0Xk$=AI[MP@^_MDy(e">
+          <mutation else="1"></mutation>
+          <value name="IF0">
+            <block type="logic_compare" id="A(JL|/,CsLvYu:ODZgC8">
+              <field name="OP">EQ</field>
+              <value name="A">
+                <block type="variables_get" id="E%]S[2|f~B2_/?)k7eFI">
+                  <field name="VAR" id="jqid~2=ot|hnz`]{Anv`">camera_moving</field>
+                </block>
+              </value>
+              <value name="B">
+                <block type="logic_boolean" id="s7$1]L.op=x*WnVr!kA8">
+                  <field name="BOOL">TRUE</field>
+                </block>
+              </value>
+            </block>
+          </value>
+          <statement name="DO0">
+            <block type="enableRendering" id="9HR9,]#eQfz)js5)/bTC"></block>
+          </statement>
+          <statement name="ELSE">
+            <block type="disableRendering" id="ZRF3.Ah5AZ}!L9oAV^YJ">
+              <field name="AA">TRUE</field>
+            </block>
+          </statement>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="autoRotateCamera" id="qb*rf`/|ckI5YcyQDC}/" x="90" y="630">
+      <field name="ON_OFF">ON</field>
+      <value name="SPEED">
+        <shadow type="math_number" id="NiZ?BNV8G%8]![oQgX,D">
+          <field name="NUM">0.75</field>
+        </shadow>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="variables_set" id="e5/77xrr6MBISlGnLDOr" x="510" y="610">
+      <field name="VAR" id="jqid~2=ot|hnz`]{Anv`">camera_moving</field>
+      <value name="VALUE">
+        <block type="logic_boolean" id="jY2g#nO.FIo^kf|x;nS9">
+          <field name="BOOL">FALSE</field>
+        </block>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="setScreenScale" id="xRTj-V_axfUeLz^usrGo" x="190" y="710">
+      <value name="FACTOR">
+        <shadow type="math_number" id="7}oZr+!DuGFkYz,0^MQ.">
+          <field name="NUM">1.25</field>
+        </shadow>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="bloom" id="am,KHh#aHNBA*vvlahvt" x="90" y="770">
+      <value name="THRESHOLD">
+        <shadow type="number_slider" id="9Q`l]_V@T.Sd[DXcCH]0">
+          <field name="NUM" min="0" max="10" step="0.1">1</field>
+        </shadow>
+      </value>
+      <value name="STRENGTH">
+        <shadow type="number_slider" id="9M.XIqiL$3t5CnSS(tZ]">
+          <field name="NUM" min="0" max="10" step="0.1">0.5</field>
+        </shadow>
+      </value>
+      <value name="RADIUS">
+        <shadow type="number_slider" id="~BR`R||NOy.(!M-PIcdK">
+          <field name="NUM" min="0" max="10" step="0.1">0.2</field>
+        </shadow>
+      </value>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="whenMoved" id="fFjk0o|7VHyS?I.FG;o#" x="750" y="770">
+      <value name="OBJECT">
+        <shadow type="objectList" id="6:(As#)~OPS(;-17(6^m">
+          <field name="FIELDNAME">&lt;none&gt;</field>
+        </shadow>
+        <block type="getActiveCamera" id=".@BJyvbH,0Pk9Oz74JlA"></block>
+      </value>
+      <value name="DELTA">
+        <shadow type="math_number" id="Jgg,oM/a+SGlvUoj;bz|">
+          <field name="NUM">0.01</field>
+        </shadow>
+      </value>
+      <statement name="DO_START">
+        <block type="variables_set" id="hBl_DG]W8vut090546`-">
+          <field name="VAR" id="jqid~2=ot|hnz`]{Anv`">camera_moving</field>
+          <value name="VALUE">
+            <block type="logic_boolean" id="@x!9JoP`vVlbt]fT5m0W">
+              <field name="BOOL">TRUE</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+      <statement name="DO_STOP">
+        <block type="variables_set" id="knD3wgI:ZF^o-fSHk21q">
+          <field name="VAR" id="jqid~2=ot|hnz`]{Anv`">camera_moving</field>
+          <value name="VALUE">
+            <block type="logic_boolean" id="H8Oo5jQ6/sp|Hi+_|)?O">
+              <field name="BOOL">FALSE</field>
+            </block>
+          </value>
+        </block>
+      </statement>
+    </block>
+    <block xmlns="https://developers.google.com/blockly/xml" type="ssr" id="TZ3la{4A%+n*bnAQoq|E" x="1270" y="750">
+      <field name="TYPE">REFRACT</field>
+      <value name="MATERIAL">
+        <shadow type="materialList" id="07D_@#SCHRk-`3}Y0-#Z">
+          <field name="FIELDNAME">glass</field>
+        </shadow>
+      </value>
+      <value name="STEPS">
+        <shadow type="number_slider" id="8W[s9^ZPCY9V,(p{I0U`">
+          <field name="NUM" min="0" max="1000" step="1">100</field>
+        </shadow>
+      </value>
+      <value name="STRIDE">
+        <shadow type="number_slider" id="TUh:7V(}Jl]!Iq8iz:NP">
+          <field name="NUM" min="0" max="10" step="0.1">5</field>
+        </shadow>
+      </value>
+      <value name="BINARY_SEARCH_STEPS">
+        <shadow type="number_slider" id="eqiN6|RZeA;G/m@8JzaJ">
+          <field name="NUM" min="0" max="10" step="0.1">4</field>
+        </shadow>
+      </value>
+      <value name="THICKNESS">
+        <shadow type="number_slider" id="}`M0g7j?Q}G3d]af$YWs">
+          <field name="NUM" min="0" max="0.1" step="0.01">0.01</field>
+        </shadow>
+      </value>
+      <value name="MAX_DISTANCE">
+        <shadow type="number_slider" id="1moj~IR!:DYf/9ig26{K">
+          <field name="NUM" min="0" max="1000" step="1">100</field>
+        </shadow>
+      </value>
+      <value name="RESOLUTION">
+        <shadow type="number_slider" id=")(O(K_d{/D3U#H%8Z[u1">
+          <field name="NUM" min="0" max="10" step="0.1">0.5</field>
+        </shadow>
+      </value>
+      <value name="JITTER">
+        <shadow type="number_slider" id="IH}LknE9:F7l)6;3C,bp">
+          <field name="NUM" min="0" max="10" step="0.1">1</field>
+        </shadow>
+      </value>
+      <value name="RENDER_AFTER">
+        <shadow type="objectList" id="t;40k^Q9/M5Gl,SioODJ">
+          <field name="FIELDNAME">Scene</field>
+        </shadow>
+      </value>
+    </block>
+  </tab>
+  <editorsettings viewport-x="1053.9999633789062" viewport-y="28" viewport-w="464" viewport-h="373" viewport-hidden="false" toolbox-library-mode="false" toolbox-minimized-mode="false"></editorsettings>
+</xml>
